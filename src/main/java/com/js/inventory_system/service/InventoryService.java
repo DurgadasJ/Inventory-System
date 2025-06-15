@@ -2,6 +2,7 @@ package com.js.inventory_system.service;
 
 import com.js.inventory_system.dao.ProductDao;
 import com.js.inventory_system.dao.ProductDaoImplementation;
+import com.js.inventory_system.exception.IdNotFoundException;
 import com.js.inventory_system.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,10 @@ public class InventoryService {
     }
 
     public Product getProductById(int id){
+        Product product = productDao.findById(id);
+        if (product == null) {
+            throw new IdNotFoundException("Product with ID " + id + " not found");
+        }
        return productDao.findById(id);
     }
 

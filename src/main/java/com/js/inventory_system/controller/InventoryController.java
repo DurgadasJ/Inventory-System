@@ -33,8 +33,10 @@ public class InventoryController {
         }
 
         @PostMapping("/product")
-        public void createProduct(@RequestBody Product product){
-           inventoryService.addProduct(product);
+        public String  createProduct(@RequestBody Product product){
+
+            inventoryService.addProduct(product);
+            return "Product created successfully: " + product.toString();
         }
 
         @PutMapping
