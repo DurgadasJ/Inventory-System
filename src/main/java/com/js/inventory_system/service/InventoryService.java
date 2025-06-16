@@ -16,7 +16,6 @@ public class InventoryService {
     public InventoryService(ProductDao productDao){
               this.productDao = productDao;
     }
-
     public List<Product> getAllProducts(){
        return productDao.findAll();
     }
