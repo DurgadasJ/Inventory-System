@@ -19,7 +19,6 @@ public class InventoryService {
     public List<Product> getAllProducts(){
        return productDao.findAll();
     }
-
     public Product getProductById(int id){
         Product product = productDao.findById(id);
         if (product == null) {
